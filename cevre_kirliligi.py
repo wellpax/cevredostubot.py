@@ -51,4 +51,4 @@ async def resim(ctx):
     await ctx.send(f'Hep birlikte tercih ve alışkanlıklarımızı değiştirerek çevre kirliliği sorununu çözmeye çalışalım ve dünyamızı temiz tutalım.')
 
 
-bot.run('MTE4NzgxOTY1MTExMjEwODE5NA.Gj2wiY.UCJuGvDxv3yEPtZnyLiCevaG1Lp-MTb4Hraulc')
+bot.run('TOKEN')
