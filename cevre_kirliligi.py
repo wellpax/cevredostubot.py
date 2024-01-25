@@ -1,18 +1,20 @@
 import discord
 from discord.ext import commands
-
+import time
 
 
 
 intents=discord.Intents.default()
-bot = commands.Bot(command_prefix='/', intents=intents)
+
 intents.message_content=True
+
+bot = commands.Bot(command_prefix='/', intents=intents)
 
 @bot.event
 async def on_ready():
     print(f'{bot.user}olarak giriş yaptık')
 
-@bot.command(name='kirlilik')
+@bot.command()
 async def kirlilik(ctx):
     
     tavsiyeler = [
@@ -30,12 +32,23 @@ async def kirlilik(ctx):
     await ctx.send("Çevre kirliliğini engellemek için aşağıdaki önerilere göz atabilirsiniz:\n\n" + "\n".join(tavsiyeler))
 
 
-@bot.command(name='resim')
-async def resim(ctx):
+@bot.command()
+async def video(ctx):
  
-    resim_url = 'https://eco.euwomanbg.com/wp-content/uploads/2020/02/publ-min-1-400x213.jpg'
+    video_url = 'https://www.youtube.com/watch?v=vpc-RwXwtH8'
 
   
-    await ctx.send(f"İşte resminiz:\n{resim_url}")
+    await ctx.send(f"İşte videonuz:\n{video_url}")
 
-bot.run('TOKEN')
+
+
+@bot.command()
+async def resim(ctx):
+    with open(r'resimler\cevrekirlilikresim\cevrekirlilikdcbot.jpg', 'rb') as f:
+        picture = discord.File(f)
+    await ctx.send(file=picture)
+    time.sleep(1)
+    await ctx.send(f'Hep birlikte tercih ve alışkanlıklarımızı değiştirerek çevre kirliliği sorununu çözmeye çalışalım ve dünyamızı temiz tutalım.')
+
+
+bot.run('MTE4NzgxOTY1MTExMjEwODE5NA.Gj2wiY.UCJuGvDxv3yEPtZnyLiCevaG1Lp-MTb4Hraulc')
