@@ -2,8 +2,15 @@ import discord
 from discord.ext import commands
 
 
-bot = commands.Bot(command_prefix='/'), (intents=intents)
 
+
+intents=discord.Intents.default()
+bot = commands.Bot(command_prefix='/', intents=intents)
+intents.message_content=True
+
+@bot.event
+async def on_ready():
+    print(f'{bot.user}olarak giriş yaptık')
 
 @bot.command(name='kirlilik')
 async def kirlilik(ctx):
@@ -31,4 +38,4 @@ async def resim(ctx):
   
     await ctx.send(f"İşte resminiz:\n{resim_url}")
 
-bot.run('MTE4NzgxOTY1MTExMjEwODE5NA.GkSXbU.9uSoLayEGtfYkodh0txCnmOt7spEY-4d7ll7MA')
+bot.run('TOKEN')
